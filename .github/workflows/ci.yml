@@ -23,3 +23,4 @@ jobs:
       - run: yarn semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
+      - run: ls

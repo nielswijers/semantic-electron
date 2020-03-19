@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    ["@semantic-release/github", {
+      "assets": [
+        {"path": "dist/**/*"}
+      ]
+    }],
+    "@semantic-release/npm",
+    "@semantic-release/release-notes-generator"
+  ]
+}
