@@ -16,7 +16,7 @@ jobs:
       - run: yarn
       - run: yarn build:electron
         env:
-          GITHUB_TOKEN: ${{ secrets.github_token }}
+          GH_TOKEN: ${{ secrets.github_token }}
       - run: yarn test
         env:
           CI: true
