@@ -24,10 +24,11 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "start:electron": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && tsc -p electron -w\" \"wait-on http://localhost:3000 && tsc -p electron && electron .\"",
-    "build": "react-scripts build",
-    "build:electron": "yarn build && tsc -p electron && electron-builder -wml",
+    "start": "concurrently \"BROWSER=none yarn start:web\" \"wait-on http://localhost:3000 && tsc -p electron -w\" \"wait-on http://localhost:3000 && tsc -p electron && electron .\"",
+    "start:web": "react-scripts start",
+    "build": "yarn build:web && yarn build:electron",
+    "build:web": "react-scripts build",
+    "build:electron": "tsc -p electron && electron-builder -wml",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "postinstall": "electron-builder install-app-deps"
