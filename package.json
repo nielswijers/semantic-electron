@@ -6,6 +6,16 @@
   "main": "build/electron/main.js",
   "author": "Philips",
   "description": "HemoGuide clinical prototype",
+  "scripts": {
+    "start": "concurrently \"BROWSER=none yarn start:web\" \"wait-on http://localhost:3000 && tsc -p electron -w\" \"wait-on http://localhost:3000 && tsc -p electron && electron .\"",
+    "start:web": "react-scripts start",
+    "build": "yarn build:web && yarn build:electron",
+    "build:web": "react-scripts build",
+    "build:electron": "tsc -p electron && electron-builder -wml",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "postinstall": "electron-builder install-app-deps"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -22,16 +32,6 @@
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0",
     "typescript": "~3.7.2"
-  },
-  "scripts": {
-    "start": "concurrently \"BROWSER=none yarn start:web\" \"wait-on http://localhost:3000 && tsc -p electron -w\" \"wait-on http://localhost:3000 && tsc -p electron && electron .\"",
-    "start:web": "react-scripts start",
-    "build": "yarn build:web && yarn build:electron",
-    "build:web": "react-scripts build",
-    "build:electron": "tsc -p electron && electron-builder -wml",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "postinstall": "electron-builder install-app-deps"
   },
   "eslintConfig": {
     "extends": "react-app"
