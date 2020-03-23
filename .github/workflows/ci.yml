@@ -23,4 +23,15 @@ jobs:
       - run: yarn semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
-      - run: ls
+      - uses: actions/upload-artifact@v1
+        with:
+          name: hemoguide-app.zip
+          path: dist/hemoguide-app-*.*.*-mac.zip
+      - uses: actions/upload-artifact@v1
+        with:
+          name: dist/hemoguide-app Setup.exe
+          path: dist/hemoguide-app Setup *.*.*.exe
+      - uses: actions/upload-artifact@v1
+        with:
+          name: hemoguide-app.AppImage
+          path: dist/hemoguide-app-*.*.*.AppImage
