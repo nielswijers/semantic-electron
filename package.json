@@ -1,11 +1,11 @@
 {
-  "name": "semantic-electron",
+  "name": "hemoguide-app",
   "version": "0.0.0",
   "private": true,
   "homepage": ".",
   "main": "build/electron/main.js",
-  "author": "Your Name",
-  "description": "React-TypeScript-Electron sample with Create React App and Electron Builder",
+  "author": "Philips",
+  "description": "HemoGuide clinical prototype",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
